@@ -23,6 +23,16 @@ function draw() {
     player.draw();
     // grid._showGrid();
     if (playerIsMoving) {
+        chooseDirection();
+    }
+}
+
+function chooseDirection(){
+    let downY = player.getY() + player.getHeight() + player.getSpeed();
+    if (!grid.isOccupied(player.getX(), downY)){
+        player.moveDown();
+    }
+    else {
         player.moveRight();
     }
 }
